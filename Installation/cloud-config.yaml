@@ -1,7 +1,7 @@
 # cloud-config
-#
+
 # Set Hostname
-hostname:CTUV56578606E
+hostname: CTUV56578606E
 
 # Set SSH Key
 passwd:
