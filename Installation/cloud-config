@@ -1,0 +1,14 @@
+# cloud-config
+#
+# Set Hostname
+hostname:CTUV56578606E
+
+# Set SSH Key
+ssh_authorized_keys:
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBcJPZOGdAjlyzTdwkBk3cbnB8AQIApkLLyvcKsqyXO3ZWRLiqzCINuIbc5EZsnZp31cnkT+t6cY4FtQ0OjhVYFkqQzeEUUys3iJspbOm5GcHD5P0aompfMlFof5nGHMQbj7vI4SU0tJ7NzlOXF/RWpy8+B2OhcCSBFhs1UVDnW7dhrlfps+X52g77U8H9K+zmDDTWOTBupDdK3GlONCLPR4lwgxVavxYIH1GnRvH/l3+WEFdrnVLbU7cNDPWKUciiSEMw3+nnHJJZhHWO8OjknsV8v6iy2UobYPP0+uPY0V229lCYqQq3qCh7KvGGcfd82otpwfvDb9fxbWUyklep 
+##############################
+#    No Password Required    #
+#    By Shadow               #
+##############################
+
+
