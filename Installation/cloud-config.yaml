@@ -10,7 +10,7 @@ ssh_authorized_keys:
   
 users:
   - name: "shadow"
-    passwd:
+    passwd: "aetwtvlant39t3q0jdbosniers0j"
     groups:
       - "sudo"
     ssh_authorized_keys:
@@ -21,10 +21,10 @@ users:
         ##############################
 
 #configure services
-coreos:
+#coreos:
 
 #define set of files
-write-files:
+#write-files:
 
 #set /etc/hosts make you nslookup 127.0.0.1
 manage_etc_hosts: "localhost"
