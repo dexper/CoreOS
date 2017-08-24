@@ -7,6 +7,8 @@ hostname: "CTUV56578606E"
 #Set SSH Key for core
 ssh_authorized_keys:
   - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEbSAvtcKTEEbR22qnbIzXcOtQAEFSUgHqNGrg36MXmkyhvJIyXUvYoO2253aGb0aaBIUbc+Lwr8AImGJ5EXHKvLbx/wXS4UzAmnZkQXXW4EyAtoX099WYz0cT7uyFh83Xx4IM0IRD4XH0zAGRBFUJnaK8Tg0HvGOPq+JoVMqFxLq4bxfn/4TPfDccFWa8oiJY9H6CigWbpJNai7k9EsgUV8LYRBy1ZUW67NAGJPGdpRVQfPe+XJEkJAjNk6rvxVtdLvjPQzPEagr8+MXEwZLvZ83j96yl9OwVJCnLdxh08K0JC/DmlQEF8hNPVPH2OK4q6d/VmJa24QISLXSUO8lT"
+
+#add user shadow
 users:
   - name: "shadow"
     passwd: "aetwtvlant39t3q0jdbosniers0j"
