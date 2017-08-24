@@ -22,7 +22,13 @@ users:
         ##############################
 
 #configure services
-#coreos:
+coreos:
+  update:
+    reboot-strategy: "reboot"
+  locksmith:
+    window-start: Thu 01:00
+    window-length: 1h
+    #Locksmith supports maintenance windows 
 
 #define set of files
 write-files:
