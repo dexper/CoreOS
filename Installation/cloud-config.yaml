@@ -23,7 +23,17 @@ users:
 #coreos:
 
 #define set of files
-#write-files:
+write-files:
+  - path: "/etc/resolv.conf"
+    permissions: "0644"
+    owner: "root"
+    content: |
+      nameserver 10.130.255.161
+      nameserver 10.58.38.254
+      nameserver 10.33.139.48
+      nameserver 218.6.200.139
+      nameserver 61.139.2.69
+      nameserver 8.8.8.8
 
 #set /etc/hosts make you nslookup 127.0.0.1
 manage_etc_hosts: "localhost"
