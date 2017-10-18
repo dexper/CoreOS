@@ -29,7 +29,7 @@ coreos:
     window-length: 1h
     # Locksmith supports maintenance window
     
-  etcd:
+  etcd2:
     # generate a new token for your cluster from https://discovery.etcd.io/new?size=3
     # ?size=X is depends on your nodes. replace the following token you got from discovery.etcd.io
     discovery: https://discovery.etcd.io/<token>
@@ -40,6 +40,16 @@ coreos:
     # legacy ports can be omitted if your application doesn't depend on them, replace the DNS or IP with your real one. 
     listen_client_urls: http://0.0.0.0:2379,http://0.0.0.0:4001
     listen_peer_urls: http://CTUV56578606C.dhcp.ctul.sap.corp:2380
+  
+  units:
+    - name: etcd2.service
+      command: start
+    
+    - name: fleet.service
+      command: start
+    
+    - name: flanneld.service
+      command: start
     
 # define set of files
 write-files:
