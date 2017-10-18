@@ -2,7 +2,7 @@
 # https://coreos.com/os/docs/latest/cloud-config.html
 
 # Set Hostname
-hostname: "CTUV56578606E"
+hostname: "CTUV56578606C"
 
 # Set SSH Key for core
 ssh_authorized_keys:
