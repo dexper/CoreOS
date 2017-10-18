@@ -1,13 +1,13 @@
-#cloud-config
-#https://coreos.com/os/docs/latest/cloud-config.html
+# cloud-config
+# https://coreos.com/os/docs/latest/cloud-config.html
 
-#Set Hostname
+# Set Hostname
 hostname: "CTUV56578606E"
 
-#Set SSH Key for core
+# Set SSH Key for core
 ssh_authorized_keys:
   - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCq5MXWzMBr7IU1Hsat6sHl5w3l019EzFMp4Snx8Ssx6ryGi8ngIt1RQrT5Rys7eJIoDrMtPMo4J056ezLvOsTFjeZenj0/dZXe1V1KYT2JhLToEFAQX+b79UusO0pzasUJisVLC5RgMnOgHqUiGnwuuisicjmoF5zB15BqEs+iQpCe7p2DTkA6kyAHkKM3hK3jiv6D0gmREmj6X9nuMeHJOFRsk/g22YpTYMBsy9Na2gn3IyYGrJaZB14Pb9WEJa0oG8KQLEMQ4Puy08GqImezg/c9hu2+CFlPzFZGUqZBS3mthZ2hDzIRf2/s0iU2dz66IoymZcKbVoVc4tIZxFD1"
-#add user shadow
+# add user shadow
 users:
   - name: "shadow"
     passwd: "aetwtvlant39t3q0jdbosniers0j"
@@ -20,16 +20,28 @@ users:
         #    By Shadow               #
         ##############################
 
-#configure services
+# configure services
 coreos:
   update:
     reboot-strategy: "reboot"
   locksmith:
     window-start: Thu 01:00
     window-length: 1h
-    #Locksmith supports maintenance windows 
-
-#define set of files
+    # Locksmith supports maintenance window
+    
+  etcd:
+    # generate a new token for your cluster from https://discovery.etcd.io/new?size=3
+    # ?size=X is depends on your nodes. replace the following token you got from discovery.etcd.io
+    discovery: https://discovery.etcd.io/<token>
+    # multi_region and multi_cloud deployments need to use {PUBLIC_IPV4}, replace the IP with your real one.
+    advertise_client_urls: http://10.10.10.1:2379,http://10.10.10.1:4001
+    initial_advertise_peer_urls: http://10.10.10.1:2380
+    # listen on both the official ports and the legacy ports
+    # legacy ports can be omitted if your application doesn't depend on them, replace the IP with your real.
+    listen_client_urls: http://0.0.0.0:2379,http://0.0.0.0:4001
+    listen_peer_urls: http://10.10.10.1:2380
+    
+# define set of files
 write-files:
   - path: "/etc/resolv.conf"
     permissions: "0644"
@@ -42,5 +54,5 @@ write-files:
       nameserver 61.139.2.69
       nameserver 8.8.8.8
 
-#set /etc/hosts make you nslookup 127.0.0.1
+# set /etc/hosts make you nslookup 127.0.0.1
 manage_etc_hosts: "localhost"
