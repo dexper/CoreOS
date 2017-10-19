@@ -1,5 +1,5 @@
 # cloud-config
-# https://coreos.com/os/docs/latest/cloud-config.html
+# https://coreos.com/os/docs/latest/cloud-config2.html
 
 # Set Hostname
 hostname: "CTUV56578606C"
