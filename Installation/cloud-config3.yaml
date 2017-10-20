@@ -28,6 +28,16 @@ coreos:
     window-start: Thu 01:00
     window-length: 1h
     # Locksmith supports maintenance window
+  
+  etcd:
+    name:                         shadow-etcd-T1
+    listen_client_urls:           https://10.130.226.37:2379
+    advertise_client_urls:        https://10.130.226.37:2379
+    listen_peer_urls:             https://10.130.226.37:2380
+    initial_advertise_peer_urls:  https://10.130.226.37:2380
+    initial_cluster:              shadow-etcd-T1=https://10.130.226.37:2380,shadow-etcd-T2=https://10.130.226.38:2380,shadow-etcd-T3=https://10.130.226.39:2380
+    initial_cluster_token:        <my-etcd-token>
+    initial_cluster_state:        new
     
 # define set of files
 write-files:
