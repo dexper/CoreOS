@@ -31,12 +31,11 @@ coreos:
   
   etcd:
     name:                         shadow-etcd-T1
-    discovery:                    https://discovery.etcd.io/<tocken>
-    advertise_client_urls:        http://<Private IP>:2379,http://<Private IP>:4001
-    initial_advertise_peer_urls:  http://<Private IP>:2380
+    discovery:                    https://discovery.etcd.io/5b8b34b2101239eec797ea06252f95df
+    advertise_client_urls:        http://10.130.230.111:2379,http://10.130.230.111:4001
+    initial_advertise_peer_urls:  http://10.130.230.111:2380
     listen_client_urls:           http://0.0.0.0:2379,http://0.0.0.0:4001
-    listen_peer_urls:             http://<Private IP>:2380
-    initial_cluster:              shadow-etcd-T1=http://10.130.226.37:2380,shadow-etcd-T2=http://10.130.226.38:2380,shadow-etcd-T3=http://10.130.226.39:2380
+    listen_peer_urls:             http://10.130.230.111:2380
     
   systemd:
     units:
