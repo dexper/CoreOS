@@ -31,14 +31,22 @@ coreos:
   
   etcd:
     name:                         shadow-etcd-T1
-    listen_client_urls:           https://10.130.226.37:2379
-    advertise_client_urls:        https://10.130.226.37:2379
-    listen_peer_urls:             https://10.130.226.37:2380
-    initial_advertise_peer_urls:  https://10.130.226.37:2380
-    initial_cluster:              shadow-etcd-T1=https://10.130.226.37:2380,shadow-etcd-T2=https://10.130.226.38:2380,shadow-etcd-T3=https://10.130.226.39:2380
-    initial_cluster_token:        <my-etcd-token>
-    initial_cluster_state:        new
+    discovery:                    https://discovery.etcd.io/<tocken>
+    advertise_client_urls:        http://<Private IP>:2379,http://<Private IP>:4001
+    initial_advertise_peer_urls:  http://<Private IP>:2380
+    listen_client_urls:           http://0.0.0.0:2379,http://0.0.0.0:4001
+    listen_peer_urls:             http://<Private IP>:2380
+    initial_cluster:              shadow-etcd-T1=http://10.130.226.37:2380,shadow-etcd-T2=http://10.130.226.38:2380,shadow-etcd-T3=http://10.130.226.39:2380
     
+  systemd:
+    units:
+      - name:   etcd-member.service
+        enable: true        
+      - name:   flanneld.service
+        enable: true      
+      - name:   fleet.service
+        enable: true
+ 
 # define set of files
 write-files:
   - path: "/etc/resolv.conf"
