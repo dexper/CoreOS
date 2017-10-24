@@ -28,7 +28,10 @@ coreos:
     window-start: Thu 01:00
     window-length: 1h
     # Locksmith supports maintenance window
- 
+  etcd:
+    name:                         shadow-etcd-T1
+    discovery:                    https://discovery.etcd.io/5b8b34b2101239eec797ea06252f95df
+
 # define set of files
 write-files:
   - path: "/etc/resolv.conf"
